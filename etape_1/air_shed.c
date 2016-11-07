@@ -1,10 +1,10 @@
-// #ifndef
 #include "headers/ftl.h"
 
 t_ship *create_ship() {
   t_ship *ship = malloc(sizeof(t_ship));
   ship->weapon = NULL;
   ship->drive = NULL;
+  ship->navigation = NULL;
   ship->hull = 50;
   if (ship) {
     return ship;
@@ -50,6 +50,25 @@ int add_ftl_drive_to_ship(t_ship *ship) {
   }
 }
 
+int add_navigation_tools_to_ship(t_ship *ship) {
+  my_putstr(ADD_NAVIGATION);
+  t_navigation_tools *navigation;
+  navigation = malloc(sizeof(t_navigation_tools));
+  navigation->sector = 0;
+  navigation->evade = 25;
+  navigation->system_state = my_strdup("online");
+  ship->navigation = navigation;
+  if (navigation == ship->navigation) {
+    free(navigation);
+    my_putstr(ADD_NAVIGATION_SUCCESS);
+    return 1;
+  } else {
+    return 0;
+    free(navigation);
+    my_putstr(ADD_NAVIGATION_FAIL);
+  }
+}
+
 int main(char *argc, char *argv) {
   my_putstr(SHIP_BUILDING);
   t_ship *ship;
@@ -57,6 +76,8 @@ int main(char *argc, char *argv) {
   my_putstr(SHIP_WELDING_FINISH);
   add_weapon_to_ship(ship);
   add_ftl_drive_to_ship(ship);
+  add_navigation_tools_to_ship(ship);
+  add_container_to_ship(ship);
   free(ship);
   return 0;
 }

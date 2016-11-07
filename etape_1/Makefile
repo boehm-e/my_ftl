@@ -2,7 +2,7 @@ CC =		gcc
 
 NAME	=		my_ftl
 
-SRC	=	air_shed.c my_string.c
+SRC	=	air_shed.c my_string.c container.c
 OBJ	=	$(SRC:%.c=%.o)
 LDFLAGS	=	-L./libs -lmy -static
 
