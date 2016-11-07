@@ -23,8 +23,10 @@ int add_weapon_to_ship(t_ship *ship) {
   ship->weapon = weapon;
   if (weapon == ship->weapon) {
     my_putstr(ADD_WEAPONS_SUCCESS);
+    free(weapon);
     return 1;
   } else {
+    free(weapon);
     my_putstr(ADD_WEAPONS_FAIL);
     return 0;
   }
@@ -38,9 +40,11 @@ int add_ftl_drive_to_ship(t_ship *ship) {
   drive->system_state = my_strdup("online");
   ship->drive = drive;
   if (drive == ship->drive) {
+    free(drive);
     my_putstr(ADD_DRIVE_SUCCESS);
     return 1;
   } else {
+    free(drive);
     my_putstr(ADD_DRIVE_FAIL);
     return 0;
   }
@@ -53,5 +57,6 @@ int main(char *argc, char *argv) {
   my_putstr(SHIP_WELDING_FINISH);
   add_weapon_to_ship(ship);
   add_ftl_drive_to_ship(ship);
+  free(ship);
   return 0;
 }

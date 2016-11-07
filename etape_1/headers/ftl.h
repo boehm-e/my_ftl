@@ -22,11 +22,19 @@ typedef struct s_weapon {
   int           damage;
 } t_weapon;
 
+//  NAVIGATION STRUCTURE
+typedef struct s_navigation_tools {
+  char          *system_state;
+  int           sector;
+  int           evade;
+} t_navigation_tools;
+
 // SHIP STRUCTURE
 typedef struct s_ship {
   int           hull;
   t_weapon      *weapon;
   t_ftl_drive   *drive;
+  t_navigation_tools  *navigation;
 } t_ship;
 
 
