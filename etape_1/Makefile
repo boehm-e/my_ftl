@@ -1,0 +1,25 @@
+CC =		gcc
+
+NAME	=		my_ftl
+
+SRC	=	air_shed.c
+OBJ	=	$(SRC:%.c=%.o)
+LDFLAGS	=	-L./libs -lmy -static
+
+RM	=	rm -f
+
+$(NAME):	$(OBJ)
+		$(CC) -o $(NAME) $(OBJ) $(LDFLAGS)
+
+all:		$(NAME)
+
+clean:
+		$(RM) $(OBJ) $(NAME)
+
+fclean:		clean
+		$(RM) $(NAME)
+
+run:		$(NAME)
+				./${NAME}
+
+re:		fclean all
