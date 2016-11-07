@@ -1,4 +1,6 @@
 #include "headers/ftl.h"
+#include <string.h>
+
 
 t_ship *create_ship() {
   t_ship *ship = malloc(sizeof(t_ship));
@@ -23,10 +25,10 @@ int add_weapon_to_ship(t_ship *ship) {
   ship->weapon = weapon;
   if (weapon == ship->weapon) {
     my_putstr(ADD_WEAPONS_SUCCESS);
-    free(weapon);
+    // free(weapon);
     return 1;
   } else {
-    free(weapon);
+    // free(weapon);
     my_putstr(ADD_WEAPONS_FAIL);
     return 0;
   }
@@ -40,11 +42,11 @@ int add_ftl_drive_to_ship(t_ship *ship) {
   drive->system_state = my_strdup("online");
   ship->drive = drive;
   if (drive == ship->drive) {
-    free(drive);
+    // free(drive);
     my_putstr(ADD_DRIVE_SUCCESS);
     return 1;
   } else {
-    free(drive);
+    // free(drive);
     my_putstr(ADD_DRIVE_FAIL);
     return 0;
   }
@@ -59,17 +61,17 @@ int add_navigation_tools_to_ship(t_ship *ship) {
   navigation->system_state = my_strdup("online");
   ship->navigation = navigation;
   if (navigation == ship->navigation) {
-    free(navigation);
+    // free(navigation);
     my_putstr(ADD_NAVIGATION_SUCCESS);
     return 1;
   } else {
     return 0;
-    free(navigation);
+    // free(navigation);
     my_putstr(ADD_NAVIGATION_FAIL);
   }
 }
 
-int main(char *argc, char *argv) {
+int main() {
   my_putstr(SHIP_BUILDING);
   t_ship *ship;
   ship = create_ship();
@@ -78,20 +80,37 @@ int main(char *argc, char *argv) {
   add_ftl_drive_to_ship(ship);
   add_navigation_tools_to_ship(ship);
   add_container_to_ship(ship);
+  my_putstr("\n\n\n");
 
 
   t_freight *abc;
   abc = malloc(sizeof(t_freight));
-  abc->item = "TEST1\n";
+  abc->item = "TEST123\n";
   abc->next = NULL;
   abc->prev = NULL;
   add_freight_to_container(ship, abc);
   my_putstr(ship->container->first->item);
-  my_putstr(ship->container->first->item);
-  abc->item = "TEST22\n";
-  my_putstr(ship->container->first->item);
-  my_putstr(ship->container->first->item);
+  my_putstr(ship->container->last->item);
+
+  abc = malloc(sizeof(t_freight));
+  abc->item = "TEST456\n";
+  abc->next = NULL;
+  abc->prev = NULL;
+  add_freight_to_container(ship, abc);
   del_freight_from_container(ship, abc);
+  my_putstr(ship->container->first->item);
+  my_putstr(ship->container->last->item);
+
+
+  abc = malloc(sizeof(t_freight));
+  abc->item = "TEST789\n";
+  abc->next = NULL;
+  abc->prev = NULL;
+  add_freight_to_container(ship, abc);
+  my_putstr(ship->container->first->item);
+  my_putstr(ship->container->last->item);
+
+
 
   free(ship);
   return 0;

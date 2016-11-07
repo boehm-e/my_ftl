@@ -1,5 +1,6 @@
-CC =		gcc
+CC =		gcc -g3
 
+CFLAGS +=	-Wall -Werror -Wextra
 NAME	=		my_ftl
 
 SRC	=	air_shed.c my_string.c container.c

@@ -8,7 +8,7 @@
 #include "../libs/libmy.h"
 #include "../headers/strings.h"
 
-char			*my_strdup(char *str);
+
 
 // DRIVE STRUCTURE
 typedef struct s_ftl_drive {
@@ -33,8 +33,8 @@ typedef struct s_navigation_tools {
 typedef struct s_freight t_freight;
 struct s_freight {
   char          *item;
-  t_freight     *next;
   t_freight     *prev;
+  t_freight     *next;
 };
 
 // CONTAINER STRUCTURE
@@ -54,4 +54,12 @@ typedef struct s_ship {
 } t_ship;
 
 
+char			*my_strdup(char *str);
+int add_container_to_ship(t_ship *ship);
+int add_navigation_tools_to_ship(t_ship *ship);
+int add_weapon_to_ship(t_ship *ship);
+int add_ftl_drive_to_ship(t_ship *ship);
+int add_navigation_tools_to_ship(t_ship *ship);
+void add_freight_to_container(t_ship *ship, t_freight *freight);
+void del_freight_from_container(t_ship *ship, t_freight *freight);
 #endif
