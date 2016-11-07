@@ -39,9 +39,9 @@ struct s_freight {
 
 // CONTAINER STRUCTURE
 typedef struct s_container {
+  int           nb_elem;
   t_freight     *first;
   t_freight     *last;
-  int           nb_elem;
 } t_container;
 
 // SHIP STRUCTURE

@@ -78,6 +78,21 @@ int main(char *argc, char *argv) {
   add_ftl_drive_to_ship(ship);
   add_navigation_tools_to_ship(ship);
   add_container_to_ship(ship);
+
+
+  t_freight *abc;
+  abc = malloc(sizeof(t_freight));
+  abc->item = "TEST1\n";
+  abc->next = NULL;
+  abc->prev = NULL;
+  add_freight_to_container(ship, abc);
+  my_putstr(ship->container->first->item);
+  my_putstr(ship->container->first->item);
+  abc->item = "TEST22\n";
+  my_putstr(ship->container->first->item);
+  my_putstr(ship->container->first->item);
+  del_freight_from_container(ship, abc);
+
   free(ship);
   return 0;
 }
