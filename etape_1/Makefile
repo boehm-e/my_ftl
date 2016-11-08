@@ -3,7 +3,7 @@ CC =		gcc -g3
 CFLAGS +=	-Wall -Werror -Wextra
 NAME	=		my_ftl
 
-SRC	=	air_shed.c my_string.c container.c system_control.c system_repair.c
+SRC	=	air_shed.c my_string.c container.c system_control.c system_repair.c readline.c
 OBJ	=	$(SRC:%.c=%.o)
 LDFLAGS	=	-L./libs -lmy -static
 

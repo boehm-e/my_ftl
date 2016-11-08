@@ -43,4 +43,7 @@
 #define WEAPON_REPAIR_FAIL "les reparations du systeme d'armement ont echoue\n"
 #define WEAPON_REPAIR_SUCCESS "reparation termine! systeme d'armement OK!\n"
 
+#define READLINE_FAIL "[SYSTEM FAILURE] : le lecteur de commande est bloque\n"
+#define READLINE_NOT_FOUND "[SYSTEM FAILURE] : commande inconnue\n"
+
 #endif

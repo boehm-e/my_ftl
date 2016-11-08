@@ -1,7 +1,4 @@
 #include "headers/ftl.h"
-typedef int bool;
-#define true 1
-#define false 0
 
 
 int add_container_to_ship(t_ship *ship) {

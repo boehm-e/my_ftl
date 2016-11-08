@@ -123,6 +123,9 @@ int main() {
   get_bonus(ship);
   system_control(ship);
   ftl_drive_system_repair(ship);
+
+  system_repair(ship);
+
   free(ship);
   return 0;
 }

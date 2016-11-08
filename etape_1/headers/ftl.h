@@ -8,7 +8,9 @@
 #include "../libs/libmy.h"
 #include "../headers/strings.h"
 
-
+typedef int bool;
+#define true 1
+#define false 0
 
 // DRIVE STRUCTURE
 typedef struct s_ftl_drive {
@@ -62,7 +64,7 @@ typedef struct s_launch {
 // POINTEUR SUR FONCTION REPAIR
 typedef struct s_repair_command {
   char *str;
-  void (*ptr)(t_ship *s)
+  void (*ptr)(t_ship *s);
 } t_repair_command;
 
 char			*my_strdup(char *str);
@@ -81,5 +83,7 @@ void system_control(t_ship *ship);
 void ftl_drive_system_repair(t_ship *ship);
 void navigation_tools_system_repair(t_ship *ship);
 void weapon_system_repair(t_ship *ship);
+char		*readline(void);
+void system_repair(t_ship *ship);
 
 #endif
