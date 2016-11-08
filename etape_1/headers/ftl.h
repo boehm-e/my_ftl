@@ -54,6 +54,12 @@ typedef struct s_ship {
 } t_ship;
 
 
+// POINTEUR SUR FONCTION
+typedef struct s_launch {
+  char *str;
+  void (*ptr)(t_ship *s);
+} t_launch_ptr;
+
 char			*my_strdup(char *str);
 int add_container_to_ship(t_ship *ship);
 int add_navigation_tools_to_ship(t_ship *ship);
@@ -62,4 +68,6 @@ int add_ftl_drive_to_ship(t_ship *ship);
 int add_navigation_tools_to_ship(t_ship *ship);
 void add_freight_to_container(t_ship *ship, t_freight *freight);
 void del_freight_from_container(t_ship *ship, t_freight *freight);
+void get_bonus(t_ship *ship);
+
 #endif

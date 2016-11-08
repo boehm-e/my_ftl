@@ -80,7 +80,6 @@ int main() {
   add_ftl_drive_to_ship(ship);
   add_navigation_tools_to_ship(ship);
   add_container_to_ship(ship);
-  my_putstr("\n\n\n");
 
 
   t_freight *abc;
@@ -89,28 +88,28 @@ int main() {
   abc->next = NULL;
   abc->prev = NULL;
   add_freight_to_container(ship, abc);
-  my_putstr(ship->container->first->item);
-  my_putstr(ship->container->last->item);
+  // my_putstr(ship->container->first->item);
+  // my_putstr(ship->container->last->item);
 
-  abc = malloc(sizeof(t_freight));
-  abc->item = "TEST456\n";
-  abc->next = NULL;
-  abc->prev = NULL;
-  add_freight_to_container(ship, abc);
-  del_freight_from_container(ship, abc);
-  my_putstr(ship->container->first->item);
-  my_putstr(ship->container->last->item);
+  t_freight *def;
+  def = malloc(sizeof(t_freight));
+  def->item = "TEST456\n";
+  def->next = NULL;
+  def->prev = NULL;
+  add_freight_to_container(ship, def);
+  // my_putstr(ship->container->first->item);
+  // my_putstr(ship->container->last->item);
 
-
-  abc = malloc(sizeof(t_freight));
-  abc->item = "TEST789\n";
-  abc->next = NULL;
-  abc->prev = NULL;
-  add_freight_to_container(ship, abc);
-  my_putstr(ship->container->first->item);
-  my_putstr(ship->container->last->item);
+  t_freight *ghi;
+  ghi = malloc(sizeof(t_freight));
+  ghi->item = "TEST789\n";
+  ghi->next = NULL;
+  ghi->prev = NULL;
+  add_freight_to_container(ship, ghi);
 
 
+
+  get_bonus(ship);
 
   free(ship);
   return 0;
