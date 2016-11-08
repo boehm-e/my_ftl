@@ -53,12 +53,17 @@ typedef struct s_ship {
   t_container         *container;
 } t_ship;
 
-
 // POINTEUR SUR FONCTION
 typedef struct s_launch {
   char *str;
   void (*ptr)(t_ship *s);
 } t_launch_ptr;
+
+// POINTEUR SUR FONCTION REPAIR
+typedef struct s_repair_command {
+  char *str;
+  void (*ptr)(t_ship *s)
+} t_repair_command;
 
 char			*my_strdup(char *str);
 int add_container_to_ship(t_ship *ship);
