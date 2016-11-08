@@ -31,4 +31,16 @@
 #define WEAPON_ONLINE "systeme d'armement OK!\n"
 #define WEAPON_OFFLINE "systeme d'armement hors service!\n"
 
+#define DRIVE_REPAIR "reparation du reacteur en cours...\n"
+#define DRIVE_REPAIR_FAIL "les reparations du reacteur ont echoue\n"
+#define DRIVE_REPAIR_SUCCESS "reparation termine! systeme reacteur OK!\n"
+
+#define NAVIGATION_REPAIR "reparation du systeme de navigation en cours...\n"
+#define NAVIGATION_REPAIR_FAIL "les reparations des outils de navigations ont echoue\n"
+#define NAVIGATION_REPAIR_SUCCESS "reparation termine! systeme de navigation OK!\n"
+
+#define WEAPON_REPAIR "reparation termine! systeme de navigation OK!\n"
+#define WEAPON_REPAIR_FAIL "les reparations du systeme d'armement ont echoue\n"
+#define WEAPON_REPAIR_SUCCESS "reparation termine! systeme d'armement OK!\n"
+
 #endif

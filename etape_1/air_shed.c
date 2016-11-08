@@ -18,10 +18,16 @@ t_ship *create_ship() {
 
 int add_weapon_to_ship(t_ship *ship) {
   my_putstr(ADD_WEAPONS);
+  char *online;
+  online = my_strdup("online");
   t_weapon *weapon;
   weapon = malloc(sizeof(t_weapon));
   weapon->damage = 10;
-  weapon->system_state = my_strdup("online");
+  if (online != NULL) {
+    weapon->system_state = online;
+  } else {
+    my_putstr("ERROR\n");
+  }
   ship->weapon = weapon;
   if (weapon == ship->weapon) {
     my_putstr(ADD_WEAPONS_SUCCESS);
@@ -36,10 +42,16 @@ int add_weapon_to_ship(t_ship *ship) {
 
 int add_ftl_drive_to_ship(t_ship *ship) {
   my_putstr(ADD_DRIVE);
+  char *online;
+  online = my_strdup("online");
   t_ftl_drive *drive;
   drive = malloc(sizeof(t_ftl_drive));
   drive->energy = 10;
-  drive->system_state = my_strdup("online");
+  if (online != NULL) {
+    drive->system_state = online;
+  } else {
+    my_putstr("ERROR\n");
+  }
   ship->drive = drive;
   if (drive == ship->drive) {
     // free(drive);
@@ -110,6 +122,7 @@ int main() {
 
   get_bonus(ship);
   system_control(ship);
+  ftl_drive_system_repair(ship);
   free(ship);
   return 0;
 }

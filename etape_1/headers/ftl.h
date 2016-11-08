@@ -73,5 +73,8 @@ void ftl_drive_system_check(t_ship *ship);
 void navigation_tools_system_check(t_ship *ship);
 void weapon_system_check(t_ship *ship);
 void system_control(t_ship *ship);
+void ftl_drive_system_repair(t_ship *ship);
+void navigation_tools_system_repair(t_ship *ship);
+void weapon_system_repair(t_ship *ship);
 
 #endif
