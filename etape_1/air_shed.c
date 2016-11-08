@@ -108,9 +108,8 @@ int main() {
   add_freight_to_container(ship, ghi);
 
 
-
   get_bonus(ship);
-
+  system_control(ship);
   free(ship);
   return 0;
 }

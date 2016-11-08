@@ -69,5 +69,9 @@ int add_navigation_tools_to_ship(t_ship *ship);
 void add_freight_to_container(t_ship *ship, t_freight *freight);
 void del_freight_from_container(t_ship *ship, t_freight *freight);
 void get_bonus(t_ship *ship);
+void ftl_drive_system_check(t_ship *ship);
+void navigation_tools_system_check(t_ship *ship);
+void weapon_system_check(t_ship *ship);
+void system_control(t_ship *ship);
 
 #endif

@@ -18,4 +18,17 @@
 #define ADD_CONTAINER "ajout du container en cours...\n"
 #define ADD_CONTAINER_FAIL "votre vaisseau a explose lorsque vous avez pose le container\n"
 #define ADD_CONTAINER_SUCCESS "le container a ete ajoute avec succes!\n"
+
+#define DRIVE_CHECK "verification du reacteur en cours...\n"
+#define DRIVE_ONLINE "reacteur OK!\n"
+#define DRIVE_OFFLINE "reacteur hors service!\n"
+
+#define NAVIGATION_CHECK "verification du systeme de navigation en cours...\n"
+#define NAVIGATION_ONLINE "systeme de navigation OK!\n"
+#define NAVIGATION_OFFLINE "systeme de navigation hors service!\n"
+
+#define WEAPON_CHECK "verification du systeme d'armement en cours...\n"
+#define WEAPON_ONLINE "systeme d'armement OK!\n"
+#define WEAPON_OFFLINE "systeme d'armement hors service!\n"
+
 #endif

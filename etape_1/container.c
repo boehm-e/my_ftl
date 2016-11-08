@@ -51,7 +51,6 @@ void add_freight_to_container(t_ship *ship, t_freight *freight) {
 
 void del_freight_from_container(t_ship *ship, t_freight *freight) {
   if (freight != NULL) {
-
     if (ship->container->first == freight && ship->container->last == freight) {
       ship->container->first = NULL;
       ship->container->last = NULL;
@@ -98,56 +97,21 @@ t_launch_ptr t_launch_cmd[] = {
 };
 
 
-void get_bonus2(t_ship *ship) {
-  t_freight *current;
-  current = malloc(sizeof(t_freight));
-  current = ship->container->first;
-
-  while(current != NULL) {
-    my_put_nbr(ship->container->nb_elem);
-    my_putstr("\n\n");
-    // del_freight_from_container(ship, current);
-    current = current->next;
-  }
-
-  bool cont = 1;
-  while(cont) {
-    t_freight *cur;
-    cur = malloc(sizeof(t_freight));
-    cur = ship->container->first;
-
-    if (cur) {
-      del_freight_from_container(ship, cur);
-      if (cur->next != NULL) {
-        cur = cur->next;
-        my_put_nbr(ship->container->nb_elem);
-      } else {
-        cont = 0;
-      }
-      if (ship->container->nb_elem == 0) {
-        cont = 0;
-      }
-    }
-  }
-  my_putstr("END\n\n");
-}
-
-
 void get_bonus(t_ship *ship) {
   my_putstr("get_bonus\n\n\n");
-  // int cpt;
+  int cpt;
   t_freight *start;
 
   start = ship->container->first;
   while(start != NULL) {
-    // cpt = 0;
+    cpt = 0;
     my_putstr("start->item\n");
-    // while (t_launch_cmd[cpt].str != NULL) {
-    //   if (my_strcmp(t_launch_cmd[cpt].str, start->item) == 0) {
-    //     t_launch_cmd[cpt].ptr(ship);
-    //   }
-    //   cpt++;
-    // }
+    while (t_launch_cmd[cpt].str != NULL) {
+      if (my_strcmp(t_launch_cmd[cpt].str, start->item) == 0) {
+        t_launch_cmd[cpt].ptr(ship);
+      }
+      cpt++;
+    }
     del_freight_from_container(ship, start);
     my_putstr("here\n");
     start = ship->container->first;
