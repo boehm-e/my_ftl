@@ -1,0 +1,53 @@
+/*
+** main.c for main_test in /Users/student/Documents/boehm_e
+** 
+** Made by CHARLES Gracia Jean-Manno
+** Login   <charle_g@etna-alternance.net>
+** 
+** Started on  Fri Mar  6 18:25:04 2015 CHARLES Gracia Jean-Manno
+** Last update Fri Mar  6 18:25:05 2015 CHARLES Gracia Jean-Manno
+*/
+
+#include "lib_printf.h"
+#include <stdio.h>
+#include <math.h>
+
+int			main(void)
+{
+	my_printf("1 - une chaine\n");
+	printf("1 - une chaine\n");
+	ft_putchar('\n');
+	my_printf("2 - %s\n", "une autre chaine");
+	printf("2 - %s\n", "une autre chaine");
+	ft_putchar('\n');
+	my_printf("3 - %i\n", 42);
+	printf("3 - %i\n", 42);
+	ft_putchar('\n');
+	my_printf("4 - %s %d %s%c", "avec", 4, "parametres", '\n');
+	printf("4 - %s %d %s%c", "avec", 4, "parametres", '\n');
+	ft_putchar('\n');
+	my_printf("5 - %o\n", 42);         // unsigned octal
+	printf("5 - %o\n", 42);         // unsigned octal
+	ft_putchar('\n');
+	my_printf("6 - %u %s\n", 420000000, "Ancienne valeur"); // unsigned decimal
+	printf("6 - %u\n", 420000000); // unsigned decimal
+	ft_putchar('\n');
+	my_printf("6 - %ld %s\n", 4200000000, "Mise a jour du 05/03/2015"); // unsigned decimal
+	printf("6 - %ld\n", 4200000000); // unsigned decimal
+	ft_putchar('\n');
+	my_printf("7 - %x\n", 42);         // unsigned hexadecimal
+	printf("7 - %x\n", 42);         // unsigned hexadecimal
+	ft_putchar('\n');
+	my_printf("8 - %X\n", 42);         // unsigned hexadecimal 
+	printf("8 - %X\n", 42);         // unsigned hexadecimal 
+	ft_putchar('\n');
+	my_printf("9 - %d%%\n", 42);
+	printf("9 - %d%%\n", 42);
+	ft_putchar('\n');
+	my_printf("10 - %.5f\n", 4 * cos(2.0)); // float
+	printf("10 - %.5f\n", 4 * cos(2.0)); // float
+	ft_putchar('\n');
+	my_printf("11 - %e\n", 4 * cos(2.0));   // double
+	printf("11 - %e\n", 4 * cos(2.0));   // double
+	return (0);
+}
