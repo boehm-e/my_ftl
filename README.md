@@ -1,1 +1,1 @@
-# my_ftl
+my version of ftl developped using C, using SDL and websocket server to link node.js hotword detection library with C program.

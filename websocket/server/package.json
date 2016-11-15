@@ -1,0 +1,16 @@
+{
+  "name": "kws",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-record-lpcm16": "^0.1.4",
+    "snowboy": "^1.1.0",
+    "ws": "^1.1.1"
+  }
+}

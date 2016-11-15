@@ -1,0 +1,106 @@
+var WebSocketServer = require('ws').Server,
+    server =  new WebSocketServer({port: 5000});
+
+const record = require('node-record-lpcm16');
+const {Detector, Models} = require('snowboy');
+
+var clients = [];
+
+function sendAll(string) {
+    for (var i = 0; i < clients.length; i++) {
+	clients[i].send(string);
+    }
+}
+
+server.on('connection', function (wss) {
+    var asr;
+    console.log("CONNECTED");
+    clients.push(wss);
+
+    wss.on('message', function (data) {
+	console.log(data);
+//	setInterval(function(){sendAll("TEST : "+Math.random())},1000);
+    });
+
+    wss.on('data', function(data) {
+
+    });
+    wss.on('close', function () { // remove client from the array
+	console.log("CLOSED");
+	var index = clients.indexOf(wss);
+	if (index > -1) {
+	    clients.splice(index, 1);
+	}
+    });
+});
+
+const models = new Models();
+
+/*models.add({
+  file: 'getbonus.pmdl',
+  sensitivity: '0.5',
+  hotwords : 'get_bonus'
+});*/
+
+models.add({
+  file: 'launch_attack.pmdl',
+  sensitivity: '0.5',
+  hotwords : 'launch_attack'
+});
+
+models.add({
+  file: 'nextsector.pmdl',
+  sensitivity: '0.5',
+  hotwords : 'next_sector'
+});
+
+models.add({
+  file: 'systemrepair.pmdl',
+  sensitivity: '0.5',
+  hotwords : 'repare system'
+});
+
+const detector = new Detector({
+  resource: "node_modules/snowboy/resources/common.res",
+  models: models,
+  audioGain: 2.0
+});
+
+
+
+detector.on('silence', function () {
+  console.log('silence');
+});
+
+detector.on('sound', function () {
+  console.log('sound');
+});
+
+detector.on('error', function () {
+  console.log('error');
+});
+
+detector.on('hotword', function (index, hotword) {
+    console.log('HOT WORD \nhotword', index, hotword);
+    switch(hotword) {
+	case "get_bonus":
+	sendAll("getbonus");
+	break;
+	case "launch_attack":
+	sendAll("attack");
+	break;
+	case "next_sector":
+	sendAll("jump");
+	break;
+	case "repare system":
+	sendAll("system_repair");
+	break;
+    }
+});
+
+const mic = record.start({
+  threshold: 0//,
+//  verbose: true
+});
+
+mic.pipe(detector);
